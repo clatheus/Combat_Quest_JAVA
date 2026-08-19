@@ -15,6 +15,10 @@ public class Personagem {
         this.missoes_concluidas++;
     }
 
+    public void morreu(){
+        this.missoes_concluidas = -1;
+    }
+
     public void ganhar_recompensa(Recompensa recomp) {
         String nome_recompensa = recomp.nome;
         if (nome_recompensa.equals("Orbe de Energia")) {
