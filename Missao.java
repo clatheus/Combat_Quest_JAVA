@@ -4,12 +4,14 @@ public final class Missão {
  private int defesa;
  private int ataque;
  private int energia;
+ private Recompensa recompensa;
 
- public Missão(String nome, int defesa, int ataque, int energia) {
+ public Missão(String nome, int defesa, int ataque, int energia, Recompensa reward) {
    this.nome = nome;
    this.defesa = defesa;
    this.ataque = ataque;
    this.energia = energia;
+   this.recompensa = reward;
    this.morto = false;
  }
 
