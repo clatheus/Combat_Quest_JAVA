@@ -1,5 +1,10 @@
+package personagem;
+
+import recompensa.Recompensa;
+
 public class Personagem {
     private int pontos = 0;
+    private int energia_atual = 0;
     private int energia = 0;
     private int ataque = 0;
     private int defesa = 0;
@@ -20,14 +25,9 @@ public class Personagem {
     }
 
     public void ganhar_recompensa(Recompensa recomp) {
-        String nome_recompensa = recomp.nome;
-        if (nome_recompensa.equals("Orbe de Energia")) {
-            this.energia++;
-        } else if (nome_recompensa.equals("Orbe de Ataque")) {
-            this.ataque++;
-        } else if (nome_recompensa.equals("Orbe de Defesa")){
-            this.defesa++;
-        }
+        this.energia += recomp.energia;
+        this.ataque += recomp.ataque;
+        this.defesa += recomp.defesa;
     }
 
     // Getters 

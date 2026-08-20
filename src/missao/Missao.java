@@ -1,4 +1,8 @@
-public final class Missão {
+package missao;
+
+import recompensa.Recompensa;
+
+public final class Missao {
  private final String nome;
  private boolean morto;
  private int defesa;
@@ -16,12 +20,12 @@ public final class Missão {
  }
 
  public void Levar_dano(int dano) {
-    int danoreal = dano * (1 / this.defesa);
+    double danoreal = dano * (10 / this.defesa);
 
-    this.energia -= danoreal;
+    this.energia -= (int) danoreal;
 
     if (this.energia <= 0){
-      this.morto = True;
+      this.morto = true;
     }
  }
 
