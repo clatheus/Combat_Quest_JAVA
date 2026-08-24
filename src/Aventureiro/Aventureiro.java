@@ -1,4 +1,4 @@
-public class Personagem {
+public class Aventureiro {
     private int pontos = 0;
     private int energia_atual = 0;
     private int energia = 0;
@@ -7,9 +7,22 @@ public class Personagem {
     private int missoes_concluidas = 0;
     private String nome = "";
 
-    Personagem(String n) {
+    Aventureiro(String n) {
         this.nome = n;
-        this.energia = 5;
+    }
+
+    public void restaurar_vida(int cura) {
+        energia_atual = Math.min(energia, energia_atual + cura);
+    }
+
+    public void restaurar_vida(boolean total){
+        if (total){
+            energia_atual = energia;
+        }
+    }
+
+    public void sofrer_dano(int dano){
+        energia_atual = Math.max(0, energia_atual - dano);
     }
 
     public void concluir_missao() {
