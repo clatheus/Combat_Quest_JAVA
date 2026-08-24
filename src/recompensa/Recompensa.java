@@ -3,9 +3,13 @@ package recompensa;
 import item.*;
 
 public class Recompensa extends Item {
-    public Recompensa(String descricao, TipoItem tipo, Raridade raridade, int energia, int ataque, int defesa) {
-        super(descricao, tipo, raridade, energia, ataque, defesa);
+    private int id;
+
+    public Recompensa(String descricao, TipoItem tipo, Raridade raridade, int valor, int id) {
+        super(descricao, tipo, raridade, valor);
+        this.id = id;
     }
 
-    public void porranenhuma(){}
+    // Getters
+    public int getID() { return id; }
 }
