@@ -1,7 +1,3 @@
-package personagem;
-
-import recompensa.Recompensa;
-
 public class Personagem {
     private int pontos = 0;
     private int energia_atual = 0;
@@ -25,9 +21,9 @@ public class Personagem {
     }
 
     public void ganhar_recompensa(Recompensa recomp) {
-        this.energia += recomp.energia;
-        this.ataque += recomp.ataque;
-        this.defesa += recomp.defesa;
+        this.energia += recomp.getEnergia();
+        this.ataque += recomp.getAtaque();
+        this.defesa += recomp.getDefesa();
     }
 
     // Getters 

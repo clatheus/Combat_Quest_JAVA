@@ -1,6 +1,3 @@
-package core;
-
-import personagem.p;
 import java.util.Scanner;
 
 public class Main {

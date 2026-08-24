@@ -34,4 +34,5 @@ public final class Missao {
  public int get_ataque() { return ataque; }
  public int get_defesa() { return defesa; }
  public boolean obito() { return morto; }
+ public Recompensa get_Recompensa() { return  recompensa; }
 }
