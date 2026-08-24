@@ -1,4 +1,6 @@
-public class Recompensa {
+package recompensa;
+
+public final class Recompensa {
     private final String descricao;
     private final int energia;
     private final int ataque;

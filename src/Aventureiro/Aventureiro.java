@@ -1,3 +1,9 @@
+package aventureiro;
+
+import java.util.ArrayList;
+import recompensa.Recompensa;
+import missao.Missao;
+
 public class Aventureiro {
     private int pontos = 0;
     private int energia_atual = 0;
@@ -6,8 +12,9 @@ public class Aventureiro {
     private int defesa = 0;
     private int missoes_concluidas = 0;
     private String nome = "";
+    private ArrayList<Missao> missoes = new ArrayList<>();
 
-    Aventureiro(String n) {
+    public Aventureiro(String n) {
         this.nome = n;
     }
 
@@ -21,7 +28,7 @@ public class Aventureiro {
         }
     }
 
-    public void sofrer_dano(int dano){
+    public void Levar_dano(int dano){
         energia_atual = Math.max(0, energia_atual - dano);
     }
 
