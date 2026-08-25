@@ -1,10 +1,12 @@
 package recompensa;
 
 public final class Recompensa {
-    private final String descricao;
-    private final int energia;
-    private final int ataque;
-    private final int defesa;
+    private String descricao;
+    private int energia;
+    private int ataque;
+    private int defesa;
+
+    public Recompensa() {}
 
     public Recompensa(String descricao, int energia, int ataque, int defesa) {
     this.descricao = descricao;

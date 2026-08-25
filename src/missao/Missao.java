@@ -19,7 +19,7 @@ public final class Missao {
    this.morto = false;
  }
 
- public void Levar_dano(int dano) {
+ public void levar_dano(int dano) {
     double danoreal = dano * (10 / this.defesa);
 
     this.energia -= (int) danoreal;
