@@ -6,7 +6,7 @@ import missao.Missao;
 import recompensa.Recompensa;
 
 public class Main {
-    public int loop_luta(Aventureiro p, Missao m, Scanner scanner_legal){
+    /**public int loop_luta(Aventureiro p, Missao m, Scanner scanner_legal){
         //retorna 0 se ganhar, 1 se perder e 2 se fugir
         p.restaurar_vida(true);
 
@@ -25,13 +25,13 @@ public class Main {
         }
         
         return 0;
-    }
+    }*/
 
     public static void main(String[] Args) {
         Aventureiro p = new Aventureiro("Caipora");
         Scanner scanner_legal = new Scanner(System.in);
 
-        while (p.get_missoes_concluidas() != -1 && p.get_missoes_concluidas() != 3){
+        /** while (p.get_missoes_concluidas() != -1 && p.get_missoes_concluidas() != 3){
             int resultado = -1;
 
             if (p.get_missoes_concluidas() == 0){
@@ -56,7 +56,7 @@ public class Main {
             } else if (resultado == 2){
                 //todo run method
             }
-        }
+        }*/
 
     } 
 }

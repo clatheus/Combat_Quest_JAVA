@@ -1,20 +1,15 @@
 package recompensa;
 
-public final class Recompensa {
-    private final String descricao;
-    private final int energia;
-    private final int ataque;
-    private final int defesa;
+import item.*;
 
-    public Recompensa(String descricao, int energia, int ataque, int defesa) {
-    this.descricao = descricao;
-    this.energia = energia;
-    this.ataque = ataque;
-    this.defesa = defesa;
+public class Recompensa extends Item {
+    private int id;
+
+    public Recompensa(String descricao, TipoItem tipo, Raridade raridade, int valor, int id) {
+        super(descricao, tipo, raridade, valor);
+        this.id = id;
     }
-    
-    public String getDescricao() { return descricao; }
-    public int    getEnergia()   { return energia;   }
-    public int    getAtaque()    { return ataque;    }
-    public int    getDefesa()    { return defesa;    }
+
+    // Getters
+    public int getID() { return id; }
 }
