@@ -1,3 +1,7 @@
+package Aventureiro;
+
+import recompensa.Recompensa;
+
 public class Aventureiro {
     private int pontos = 0;
     private int energia_atual = 0;

@@ -1,3 +1,7 @@
+package missao;
+
+import recompensa.Recompensa;
+
 public final class Missao {
  private final String nome;
  private boolean morto;

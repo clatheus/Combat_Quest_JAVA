@@ -1,3 +1,5 @@
+package recompensa;
+
 public class Recompensa {
     private final String descricao;
     private final int energia;
