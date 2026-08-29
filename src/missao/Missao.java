@@ -36,11 +36,16 @@ public final class Missao {
  }
 
   /**
-   * Dá dano ao inimigo baseado no ataque do personagem e na defesa do inimigo
+   * Dá dano ao inimigo baseado no ataque do personagem e na defesa do inimigo e evita
+   * que o inimigo se cure.
    * 
    * @param dano O ataque do personagem
    */
  public void LevarDano(int dano) {
+    if (dano <= 0 ){
+      return;
+    }
+
     double danoreal;
 
     if (this.defesa > 0 && this.defesa < 10){

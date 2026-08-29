@@ -57,7 +57,13 @@ public class Aventureiro {
             return;
         }
 
-        double danoreal = dano * (10 / defesa);
+        double danoreal;
+
+        if (defesa > 0 && defesa < 10){
+            danoreal = dano * (10.0 / defesa);
+        } else {
+            danoreal = dano;
+        }
 
         energia = Math.max(0, energia - (int) danoreal);
 

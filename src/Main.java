@@ -69,6 +69,13 @@ public class Main {
         scanner_legal.close();
     }
 
+    /**
+     * Loop do jogo que cuida do progresso de uma missao.
+     * 
+     * @param p O personagem do jogador
+     * @param inimigo Os dados da missão e do inimigo que está sendo enfrentado
+     * @param scanner_legal Scanner para ler as entradas do usuário e decidir o que acontece no jogo
+     */
     public static void loop_luta(Aventureiro p, Missao inimigo, Scanner scanner_legal) {
         System.out.println("\n============================================");
         System.out.println("Lute contra: " + inimigo.getNome());
@@ -126,10 +133,30 @@ public class Main {
         }
     }
 
+    /**
+     * Função que calcula o dano que será levado por uma entidade baseado na sua própria defesa
+     * e no ataque de quem está inflingindo o dano
+     * 
+     * @param ataque O valor do ataque da entidade que está atacando
+     * @param defesa O valor da defesa de quem está sendo atacado
+     * 
+     * @return O valor calculado de quanto dano foi causado.
+     */
     public static int calcula_dano(int ataque, int defesa){
-    double danoreal = ataque * (10 / defesa);
+        if (ataque <= 0){
+            return 0;
+        }
 
-    return (int) danoreal;}
+        double danoreal;
+
+        if (defesa > 0 && defesa < 10){
+            danoreal = ataque * (10.0 / defesa);
+        } else {
+            danoreal = ataque;
+        }
+
+        return (int) danoreal;
+    }
 }
 
 
