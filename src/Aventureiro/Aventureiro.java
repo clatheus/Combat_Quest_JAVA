@@ -1,9 +1,7 @@
 package aventureiro;
 
-import java.util.ArrayList;
 import recompensa.Recompensa;
 import item.*;
-import missao.Missao;
 import inventario.*;
 
 public class Aventureiro {
@@ -16,7 +14,6 @@ public class Aventureiro {
     private int missoes_concluidas = 0;
     private String nome = "";
     private Inventario bolsa;
-    private ArrayList<Missao> missoes = new ArrayList<>();
 
     public Aventureiro(String n) {
         nome = n;
@@ -34,7 +31,9 @@ public class Aventureiro {
 
     // Evita do aventureiro ficar com a energia negativa.
     public void levar_dano(int dano){
-        energia = Math.max(0, energia - dano);
+        double danoreal = dano * (10 / defesa);
+
+        energia = Math.max(0, energia - (int) danoreal);
     }
 
     public void concluir_missao() {
@@ -52,10 +51,10 @@ public class Aventureiro {
 
         if (recomp.getTipo() == Item.TipoItem.CONSUMIVEL || recomp.getTipo() == Item.TipoItem.CONSUMIVELUNICO){
             System.out.print("HP ");
-            System.out.print(energia);
+            System.out.print(energia_maxima);
             System.out.print(" -> ");
-            energia += recomp.getValor();
-            System.out.println(energia);
+            energia_maxima += recomp.getValor();
+            System.out.println(energia_maxima);
         }
 
         if (recomp.getTipo() == Item.TipoItem.ARMA){
@@ -73,6 +72,13 @@ public class Aventureiro {
             defesa += recomp.getValor();
             System.out.println(defesa);
         }
+
+        if (recomp.getTipo() == Item.TipoItem.CONSUMIVELUNICO){
+            System.out.println("Você consumiu a/o " + recomp.getDescricao());
+        } else {
+            bolsa.addItem(recomp);
+            System.out.println(recomp.getDescricao() + " foi adicionado(a) ao seu inventário!");
+        }
     }
 
     // Getters 
@@ -83,4 +89,5 @@ public class Aventureiro {
     public int get_ataque() { return ataque; }
     public int get_defesa() { return defesa; }
     public int get_missoes_concluidas() { return missoes_concluidas; }
+    public Inventario get_Inventario() { return bolsa; }
 }

@@ -22,7 +22,7 @@ public final class Missao {
  public void Levar_dano(int dano) {
     double danoreal = dano * (10 / this.defesa);
 
-    this.energia -= (int) danoreal;
+    this.energia = Math.max(0, energia - (int) danoreal);
 
     if (this.energia <= 0){
       this.morto = true;

@@ -17,22 +17,23 @@ public class Main {
         System.out.println("Aventureiro: " + p.get_nome());
 
         while (!p.morto() && p.get_missoes_concluidas() < 3) {
+            p.restaurar_vida_total();
             int resultado = -1;
             Missao inimigoAtual = null;
 
             if (p.get_missoes_concluidas() == 0) {
-                Recompensa rw = new Recompensa("Poção Pequena", Item.TipoItem.CONSUMIVEL, Item.Raridade.COMUM, 10, 1);
-                inimigoAtual = new Missao("Slime", 1, 2, 10, rw);
+                Recompensa rw = new Recompensa("Poção Pequena", Item.TipoItem.CONSUMIVEL, Item.Raridade.COMUM, 100, 1);
+                inimigoAtual = new Missao("Slime", 1, 2, 80, rw);
                 resultado = loop_luta(p, inimigoAtual, scanner_legal);
 
             } else if (p.get_missoes_concluidas() == 1) {
-                Recompensa rw = new Recompensa("Espada de Sombria", Item.TipoItem.ARMA, Item.Raridade.RARO, 10, 2);
-                inimigoAtual = new Missao("Goblin", 2, 5, 20, rw);
+                Recompensa rw = new Recompensa("Espada de Sombria", Item.TipoItem.ARMA, Item.Raridade.RARO, 20, 2);
+                inimigoAtual = new Missao("Goblin", 1, 5, 100, rw);
                 resultado = loop_luta(p, inimigoAtual, scanner_legal);
 
             } else if (p.get_missoes_concluidas() == 2) {
                 Recompensa rw = new Recompensa("Capa Carmesim", Item.TipoItem.ARMADURA, Item.Raridade.EPICO, 5, 3);
-                inimigoAtual = new Missao("Vampiro", 5, 10, 100, rw);
+                inimigoAtual = new Missao("Vampiro", 2, 8, 350, rw);
                 resultado = loop_luta(p, inimigoAtual, scanner_legal);
             }
 
@@ -52,6 +53,8 @@ public class Main {
 
         if (p.get_missoes_concluidas() == 3) {
             System.out.println("\nParabéns! Você é um(a) verdadeiro(a) guerreiro(a)!");
+        } else {
+            System.out.println("\nQue pena! Mais sorte próxima vez guerreiro(a).");
         }
 
         scanner_legal.close();
@@ -71,14 +74,20 @@ public class Main {
             String acao = scanner_legal.nextLine();
 
             if (acao.equals("1")) {
+                int temp = calcula_dano(p.get_ataque(), inimigo.get_defesa());
+
                 System.out.println("\n" + p.get_nome() + " ataca!");
+                System.out.println(p.get_nome() + " causa " + temp + " de dano!");
+
                 inimigo.Levar_dano(p.get_ataque());
 
                 if (inimigo.obito()) {
                     return 0;
                 }
 
-                System.out.println(inimigo.get_nome() + " contra-ataca e causa " + inimigo.get_ataque() + " de dano!");
+                temp = calcula_dano(inimigo.get_ataque(), p.get_defesa());
+
+                System.out.println(inimigo.get_nome() + " contra-ataca e causa " + temp + " de dano!");
                 p.levar_dano(inimigo.get_ataque());
 
                 if (p.get_energia() <= 0) {
@@ -89,9 +98,25 @@ public class Main {
                 return 2;
             } else {
                 System.out.println("Ação inválida! Você perdeu o turno.");
+
+                int temp = calcula_dano(inimigo.get_ataque(), p.get_defesa());
+
+                System.out.println(inimigo.get_nome() + " ataca e causa " + temp + " de dano!");
+                p.levar_dano(inimigo.get_ataque());
+
+                if (p.get_energia() <= 0) {
+                    return 1;
+                }
             }
         }
 
         return p.get_energia() > 0 ? 0 : 1;
     }
+
+    public static int calcula_dano(int ataque, int defesa){
+    double danoreal = ataque * (10 / defesa);
+
+    return (int) danoreal;}
 }
+
+
