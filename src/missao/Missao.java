@@ -8,7 +8,7 @@ package missao;
 
 import recompensa.Recompensa;
 
-public final class Missao {
+public abstract class Missao {
  /// Possiveis estados da missão.
  public enum Estado{
    NAO_INICIADA,
@@ -25,6 +25,7 @@ public final class Missao {
  private Estado estado;             /// Controla o estado da missão.
  private Recompensa recompensa;     /// Recompensa a ser fornecida pelo inimigo.
 
+ public abstract void atacarAventureiro();
  /// Construtor padrão
  public Missao(String nome, int defesa, int ataque, int energia, Recompensa reward) {
    this.nome = nome;
@@ -34,6 +35,7 @@ public final class Missao {
    this.recompensa = reward;
    this.estado = Estado.NAO_INICIADA;
  }
+
 
   /**
    * Dá dano ao inimigo baseado no ataque do personagem e na defesa do inimigo e evita

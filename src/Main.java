@@ -8,8 +8,7 @@ import java.util.Scanner;
 
 import aventureiro.Aventureiro;
 import item.Item;
-import missao.Missao;
-import missao.Missao.Estado;
+import missao.*;
 import recompensa.Recompensa;
 
 public class Main {
@@ -30,17 +29,17 @@ public class Main {
 
             if (p.getMissoesConcluidas() == 0) {
                 Recompensa rw = new Recompensa("Poção Pequena", Item.TipoItem.CONSUMIVELUNICO, Item.Raridade.COMUM, 100, 1);
-                inimigoAtual = new Missao("Slime", 1, 2, 80, rw);
+                inimigoAtual = new Goblin("Goblin Ardiloso", 1, 2, 80, rw);
                 loop_luta(p, inimigoAtual, scanner_legal);
 
             } else if (p.getMissoesConcluidas() == 1) {
                 Recompensa rw = new Recompensa("Espada Sombria", Item.TipoItem.ARMA, Item.Raridade.RARO, 20, 2);
-                inimigoAtual = new Missao("Goblin", 1, 5, 100, rw);
+                inimigoAtual = new Esqueleto("Esqueleto Maldito", 1, 5, 100, rw);
                 loop_luta(p, inimigoAtual, scanner_legal);
 
             } else if (p.getMissoesConcluidas() == 2) {
                 Recompensa rw = new Recompensa("Capa Carmesim", Item.TipoItem.ARMADURA, Item.Raridade.EPICO, 5, 3);
-                inimigoAtual = new Missao("Vampiro", 2, 8, 350, rw);
+                inimigoAtual = new Vampiro("Vampiro", 2, 8, 350, rw);
                 loop_luta(p, inimigoAtual, scanner_legal);
             }
 
