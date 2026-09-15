@@ -10,7 +10,7 @@ import recompensa.Recompensa;
 
 public abstract class Missao {
  /// Possiveis estados da missão.
- public enum Estado{
+ public enum Estado {
    NAO_INICIADA,
    EM_PROGRESSO,
    FUGA,
@@ -25,7 +25,7 @@ public abstract class Missao {
  private Estado estado;             /// Controla o estado da missão.
  private Recompensa recompensa;     /// Recompensa a ser fornecida pelo inimigo.
 
- public abstract void atacarAventureiro();
+ public abstract void mensagemDeAtaque();
  /// Construtor padrão
  public Missao(String nome, int defesa, int ataque, int energia, Recompensa reward) {
    this.nome = nome;

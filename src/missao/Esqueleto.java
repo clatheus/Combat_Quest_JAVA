@@ -7,7 +7,7 @@ public class Esqueleto extends Missao {
     }
 
     @Override 
-    public void atacarAventureiro() {
+    public void mensagemDeAtaque() {
         System.out.println("O esqueleto maldito te perfura com uma flecha!");
     }
 }
