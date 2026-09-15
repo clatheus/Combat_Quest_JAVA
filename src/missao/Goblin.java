@@ -7,7 +7,7 @@ public class Goblin extends Missao {
     }
 
     @Override 
-    public void atacarAventureiro() {
+    public void mensagemDeAtaque() {
         System.out.println("O goblin ardiloso te atinge com uma adaga!");
     }
 }

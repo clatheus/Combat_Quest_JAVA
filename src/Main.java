@@ -9,6 +9,7 @@ import java.util.Scanner;
 import aventureiro.Aventureiro;
 import item.Item;
 import missao.*;
+import missao.Missao.Estado;
 import recompensa.Recompensa;
 
 public class Main {
@@ -44,7 +45,7 @@ public class Main {
             }
 
             if (inimigoAtual.getEstado() == Estado.CONCLUIDA) {
-                System.out.println("\nBoa " + p.getNome() + "! Você detonou nessa missão!");
+                System.out.println("\nBoa, " + p.getNome() + "! Você detonou nessa missão!");
                 p.ganhar_recompensa(inimigoAtual.getRecompensa());
                 p.concluir_missao();
             } else if (inimigoAtual.getEstado() == Estado.FALHA) {
@@ -105,7 +106,8 @@ public class Main {
 
                 temp = calcula_dano(inimigo.getAtaque(), p.getDefesa());
 
-                System.out.println(inimigo.getNome() + " contra-ataca e causa " + temp + " de dano!");
+                // System.out.println(inimigo.getNome() + " contra-ataca e causa " + temp + " de dano!");
+                inimigo.mensagemDeAtaque();
                 p.levar_dano(inimigo.getAtaque());
 
                 if (p.morto()) {

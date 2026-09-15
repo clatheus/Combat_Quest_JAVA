@@ -7,7 +7,7 @@ public class Vampiro extends Missao {
     }
 
     @Override 
-    public void atacarAventureiro() {
+    public void mensagemDeAtaque() {
         System.out.println("O vampiro sedento te da uma sugada!");
     }
 }
